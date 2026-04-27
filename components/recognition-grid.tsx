@@ -24,11 +24,11 @@ export function RecognitionGrid() {
           }
         />
 
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6" data-reveal-group-soft>
           {recognitionItems.map((item, index) => (
             <div
               key={item}
-              data-reveal
+              data-reveal-soft-item
               className="flex min-h-28 items-center justify-center rounded-[1.7rem] border border-zinc-200/80 bg-white px-4 py-5 text-center shadow-sm"
               style={{ transitionDelay: `${index * 35}ms` }}
             >

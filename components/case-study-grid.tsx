@@ -27,11 +27,11 @@ export function CaseStudyGrid() {
           }
         />
 
-        <div className="grid gap-5 lg:grid-cols-2 xl:grid-cols-3" data-reveal-group>
+        <div className="grid gap-5 lg:grid-cols-2 xl:grid-cols-3" data-reveal-group-soft>
           {systems.map((system, index) => (
             <article
               key={system.id}
-              data-reveal-item
+              data-reveal-soft-item
               className="flex h-full flex-col rounded-[2rem] border border-zinc-200/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(246,243,238,0.98))] p-6 shadow-panel"
               style={{ transitionDelay: `${index * 50}ms` }}
             >

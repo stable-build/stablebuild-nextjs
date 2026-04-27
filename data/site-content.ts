@@ -6,48 +6,56 @@ export const navigation = [
 ];
 
 export const heroStats = [
-  { value: "45", suffix: " H/M", label: "Security findings across 20+ protocols" },
-  { value: "10K+", label: "Signals processed daily in live AI systems" },
-  { value: "50+", label: "Adoptions driven by integration work" },
-  { value: "1", suffix: " team", label: "Strategy, engineering, security, and delivery aligned" },
+  {
+    value: "20+",
+    label: "Protocols shipped",
+  },
+  {
+    value: "4",
+    label: "Global markets across IN, SG, UK, and US",
+  },
+  {
+    value: "3",
+    label: "Product, AI, and protocol stacks under one team",
+  },
+  {
+    value: "1",
+    label: "Senior delivery standard across the full stack",
+  },
 ];
 
 export const trustSignals = [
   "airaa.xyz live in production",
   "Arbitrum mainnet vault shipped",
-  "Nethermind audit experience",
-  "LI.FI CEO public praise",
-  "Liquity + Consensys adoption",
-  "EthBelgrade track winner",
+  "Client-ready Base widget shipped",
+  "Production CI templates adopted",
+  "NDA trading agent validated",
+  "Offline audit tooling benchmarked",
 ];
 
 export const proofCards = [
   {
     eyebrow: "AI systems",
     title: "Production multi-agent systems that do more than prompt.",
-    body:
-      "From airdrop intelligence pipelines processing 10K+ tweets a day to RAG systems that are architecturally forbidden from hallucinating.",
+    body: "From airdrop intelligence pipelines processing 10K+ tweets a day to RAG systems that are architecturally forbidden from hallucinating.",
     points: ["LangChain", "LangGraph", "PGVector", "FastAPI"],
   },
   {
     eyebrow: "Protocol engineering",
     title: "DeFi and wallet infrastructure built for real execution paths.",
-    body:
-      "Vaults, widgets, browser extensions, calldata generation, and cross-protocol integrations shaped around live constraints instead of idealized demos.",
+    body: "Vaults, widgets, browser extensions, calldata generation, and cross-protocol integrations shaped around live constraints instead of idealized demos.",
     points: ["EIP-7540", "GMX V2", "Coinbase CDP", "MetaMask Delegation"],
   },
   {
     eyebrow: "Security-first",
     title: "Auditor-grade review thinking baked into delivery.",
-    body:
-      "45 high and medium findings across private and public engagements means we think like attackers before your users ever meet the system.",
+    body: "45 high and medium findings across private and public engagements means we think like attackers before your users ever meet the system.",
     points: ["Nethermind", "Code4rena", "Cantina", "5 ecosystems"],
   },
   {
     eyebrow: "Full-stack ownership",
     title: "One integrated execution surface across product, protocol, and AI.",
-    body:
-      "Frontend, backend, infra, contracts, AI pipelines, dashboards, extensions, mobile, observability, and CI are treated as one system instead of separate vendor lanes.",
+    body: "Frontend, backend, infra, contracts, AI pipelines, dashboards, extensions, mobile, observability, and CI are treated as one system instead of separate vendor lanes.",
     points: ["Next.js", "React Native", "NestJS", "Docker"],
   },
 ];
@@ -82,7 +90,14 @@ export const systems = [
       "A self-improving multi-agent pipeline for airaa.xyz that turns noisy social data into scored market intelligence.",
     impact:
       "Processes 10K+ tweets daily, applies semantic search with PGVector, and feeds investment-facing dashboards without manual curation.",
-    stack: ["Python", "LangChain", "RabbitMQ", "NestJS", "PostgreSQL", "Prometheus"],
+    stack: [
+      "Python",
+      "LangChain",
+      "RabbitMQ",
+      "NestJS",
+      "PostgreSQL",
+      "Prometheus",
+    ],
     link: "https://airaa.xyz",
     linkLabel: "View live product",
   },
@@ -116,7 +131,13 @@ export const systems = [
       "A production-ready Base widget for swaps, fiat onramp, precise token approvals, and on-chain confirmation with full E2E coverage.",
     impact:
       "Shipped as client-facing infrastructure, not a concept piece, with modular architecture ready to be dropped into a live product.",
-    stack: ["Next.js 15", "TypeScript", "Coinbase CDP SDK", "Tailwind", "Playwright"],
+    stack: [
+      "Next.js 15",
+      "TypeScript",
+      "Coinbase CDP SDK",
+      "Tailwind",
+      "Playwright",
+    ],
     link: "https://github.com/suhel-kap/coinbase-swap-widget",
     linkLabel: "View code",
   },
@@ -149,8 +170,7 @@ export const capabilities = [
     id: "build",
     label: "Build and ship product surfaces",
     title: "Full-stack delivery without orchestration drag.",
-    body:
-      "Marketing sites, product dashboards, web apps, mobile apps, browser extensions, APIs, infra, and observability all live inside one execution loop.",
+    body: "Marketing sites, product dashboards, web apps, mobile apps, browser extensions, APIs, infra, and observability all live inside one execution loop.",
     bullets: [
       "React, Next.js, React Native, NestJS, FastAPI",
       "Design, implementation, CI/CD, QA, deployment",
@@ -163,8 +183,7 @@ export const capabilities = [
     id: "ai",
     label: "Engineer AI systems properly",
     title: "Constraint-aware AI, not demo-ware.",
-    body:
-      "We build systems where data flow, observability, retrieval, and failure modes are designed upfront, so the model sits inside a real product system instead of pretending to be one.",
+    body: "We build systems where data flow, observability, retrieval, and failure modes are designed upfront, so the model sits inside a real product system instead of pretending to be one.",
     bullets: [
       "Multi-agent orchestration, RAG, semantic search, offline-first inference",
       "Architectural anti-hallucination constraints where they matter",
@@ -177,8 +196,7 @@ export const capabilities = [
     id: "protocol",
     label: "Handle protocol-grade complexity",
     title: "From wallet UX to protocol logic to execution tooling.",
-    body:
-      "The same team that builds polished frontend interfaces can also reason about calldata generation, delegation models, token approvals, and protocol integration surfaces.",
+    body: "The same team that builds polished frontend interfaces can also reason about calldata generation, delegation models, token approvals, and protocol integration surfaces.",
     bullets: [
       "Vaults, DeFi widgets, extensions, wallets, smart contracts",
       "Cross-chain and multi-ecosystem coverage",
@@ -191,8 +209,7 @@ export const capabilities = [
     id: "security",
     label: "Bake security into delivery",
     title: "Auditor-grade review thinking before the external audit.",
-    body:
-      "Security is part of product architecture, code review, and delivery sequencing. That means fewer avoidable rewrites, cleaner audits, and safer first releases.",
+    body: "Security is part of product architecture, code review, and delivery sequencing. That means fewer avoidable rewrites, cleaner audits, and safer first releases.",
     bullets: [
       "45 H/M findings across six audit firms and five ecosystems",
       "Threat modeling and attack-surface awareness at implementation time",
@@ -209,7 +226,12 @@ export const founderBlurbs = [
     role: "Full-stack and protocol engineer",
     summary:
       "Ships across frontend, backend, mobile, browser extensions, Web3 integrations, and AI pipelines. Known for taking products from 0 to live with minimal ceremony.",
-    focus: ["Production AI", "DeFi delivery", "Mobile + extensions", "Observability"],
+    focus: [
+      "Production AI",
+      "DeFi delivery",
+      "Mobile + extensions",
+      "Observability",
+    ],
     href: "https://linkedin.com/in/suhel-kapadia",
   },
   {
@@ -217,7 +239,12 @@ export const founderBlurbs = [
     role: "Security-first product and protocol engineer",
     summary:
       "Combines full-stack product shipping with serious smart contract security depth, including Nethermind audit experience and 45 H/M findings across multiple ecosystems.",
-    focus: ["Audit methodology", "Arbitrum vaults", "AI security tooling", "Protocol architecture"],
+    focus: [
+      "Audit methodology",
+      "Arbitrum vaults",
+      "AI security tooling",
+      "Protocol architecture",
+    ],
     href: "https://linkedin.com/in/0xJustUzair",
   },
 ];
@@ -225,21 +252,21 @@ export const founderBlurbs = [
 export const collectiveStrengths = [
   {
     title: "Product speed with security judgment",
-    body:
-      "The same planning loop considers UX, data flow, protocol risk, observability, and release sequencing before implementation starts.",
-    proof: "Security thinking is present during architecture, not saved for a late audit pass.",
+    body: "The same planning loop considers UX, data flow, protocol risk, observability, and release sequencing before implementation starts.",
+    proof:
+      "Security thinking is present during architecture, not saved for a late audit pass.",
   },
   {
     title: "Breadth without vendor sprawl",
-    body:
-      "StableBuild can ship the frontend, backend, AI pipeline, smart contract path, and deployment surface without splitting ownership across disconnected teams.",
-    proof: "Fewer translation layers means faster decisions and cleaner accountability.",
+    body: "StableBuild can ship the frontend, backend, AI pipeline, smart contract path, and deployment surface without splitting ownership across disconnected teams.",
+    proof:
+      "Fewer translation layers means faster decisions and cleaner accountability.",
   },
   {
     title: "Real systems, not polished demos",
-    body:
-      "The work shown here includes production AI pipelines, mainnet vault infrastructure, adopted CI templates, and audit tooling benchmarked against paid findings.",
-    proof: "Buyers can judge shipped behavior instead of only evaluating process claims.",
+    body: "The work shown here includes production AI pipelines, mainnet vault infrastructure, adopted CI templates, and audit tooling benchmarked against paid findings.",
+    proof:
+      "Buyers can judge shipped behavior instead of only evaluating process claims.",
   },
 ];
 

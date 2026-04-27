@@ -18,15 +18,15 @@ export function FoundersSection() {
           }
           description={
             <p>
-              StableBuild is built for teams that need product judgment, AI systems thinking,
-              protocol depth, and security awareness to move together instead of being passed
-              between disconnected specialists.
+              StableBuild is built for teams that need product judgment, AI
+              systems thinking, protocol depth, and security awareness to move
+              together instead of being passed between disconnected specialists.
             </p>
           }
         />
 
         <div className="grid gap-5 lg:grid-cols-3" data-reveal-group>
-          {collectiveStrengths.map((strength) => (
+          {collectiveStrengths.map(strength => (
             <article
               key={strength.title}
               data-reveal-item
@@ -38,7 +38,9 @@ export function FoundersSection() {
               <h3 className="mt-4 text-3xl font-semibold tracking-[-0.05em] text-zinc-950">
                 {strength.title}
               </h3>
-              <p className="mt-5 text-base leading-7 text-zinc-600">{strength.body}</p>
+              <p className="mt-5 text-base leading-7 text-zinc-600">
+                {strength.body}
+              </p>
               <p className="mt-6 rounded-[1.4rem] border border-zinc-200/80 bg-white/75 p-4 text-sm leading-6 text-zinc-700">
                 {strength.proof}
               </p>
@@ -55,11 +57,12 @@ export function FoundersSection() {
               Founder-led where it matters
             </p>
             <p className="mt-3 max-w-3xl text-xl leading-8 text-white/84">
-              You still get direct senior ownership in the room, but the pitch is the operating
-              model: fewer translation layers, faster technical decisions, and stronger systems.
+              You still get direct senior ownership in the room, but the pitch
+              is the operating model: fewer translation layers, faster technical
+              decisions, and stronger systems.
             </p>
           </div>
-          <div className="flex shrink-0 flex-wrap gap-2">
+          {/* <div className="flex shrink-0 flex-wrap gap-2">
             <a
               href="https://linkedin.com/in/suhel-kapadia"
               target="_blank"
@@ -76,7 +79,7 @@ export function FoundersSection() {
             >
               Uzair
             </a>
-          </div>
+          </div> */}
         </div>
       </Container>
     </section>

@@ -13,10 +13,78 @@ import { SectionHeading } from "./section-heading";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const capabilityThemes = {
+  build: {
+    activeCard:
+      "border-amber-200 bg-[linear-gradient(180deg,#111114_0%,#050507_100%)] text-white shadow-[0_24px_80px_rgba(250,101,30,0.18)]",
+    activeLabel: "text-amber-200/70",
+    activeBody: "text-white/82",
+    previewFrame: "border-amber-200/60 bg-white/76",
+    previewTitle: "text-zinc-950",
+    previewBody: "text-zinc-600",
+    metric: "bg-zinc-950 text-white",
+    bullet: "border-amber-100/80 bg-white/75 text-zinc-700",
+    stance: "border-zinc-900/80 bg-zinc-950 text-white",
+    stanceLabel: "text-amber-100/65",
+    stanceIcon: "text-amber-300",
+  },
+  ai: {
+    activeCard:
+      "border-zinc-700 bg-[linear-gradient(180deg,#0f1014_0%,#07080b_100%)] text-white shadow-[0_24px_80px_rgba(17,24,39,0.26)]",
+    activeLabel: "text-orange-200/70",
+    activeBody: "text-white/80",
+    previewFrame:
+      "border-white/20 bg-[linear-gradient(180deg,rgba(35,36,41,0.9),rgba(25,26,30,0.94))]",
+    previewTitle: "text-white",
+    previewBody: "text-white/60",
+    metric: "bg-black text-white",
+    bullet: "border-white/20 bg-white/6 text-white/68",
+    stance: "border-white/16 bg-black/78 text-white",
+    stanceLabel: "text-orange-200/60",
+    stanceIcon: "text-orange-300",
+  },
+  protocol: {
+    activeCard:
+      "border-blue-300 bg-[linear-gradient(180deg,#ffffff_0%,#f7fafc_100%)] text-zinc-950 shadow-[0_24px_80px_rgba(59,130,246,0.12)]",
+    activeLabel: "text-blue-700/70",
+    activeBody: "text-zinc-700",
+    previewFrame: "border-blue-100/80 bg-white/80",
+    previewTitle: "text-zinc-950",
+    previewBody: "text-zinc-600",
+    metric: "bg-zinc-950 text-white",
+    bullet: "border-blue-100/80 bg-white/78 text-zinc-700",
+    stance: "border-zinc-900/80 bg-zinc-950 text-white",
+    stanceLabel: "text-blue-100/65",
+    stanceIcon: "text-amber-300",
+  },
+  security: {
+    activeCard:
+      "border-emerald-300 bg-[linear-gradient(180deg,#ffffff_0%,#f7fffb_100%)] text-zinc-950 shadow-[0_24px_80px_rgba(16,185,129,0.14)]",
+    activeLabel: "text-emerald-700/70",
+    activeBody: "text-zinc-700",
+    previewFrame: "border-emerald-100/90 bg-white/82",
+    previewTitle: "text-zinc-950",
+    previewBody: "text-zinc-600",
+    metric: "bg-zinc-950 text-white",
+    bullet: "border-emerald-100/80 bg-white/80 text-zinc-700",
+    stance: "border-zinc-900/80 bg-zinc-950 text-white",
+    stanceLabel: "text-emerald-100/65",
+    stanceIcon: "text-amber-300",
+  },
+} as const;
+
+type CapabilityThemeKey = keyof typeof capabilityThemes;
+
+function getCapabilityTheme(id: string) {
+  return capabilityThemes[id as CapabilityThemeKey] ?? capabilityThemes.build;
+}
+
 export function CapabilityRail() {
   const rootRef = useRef<HTMLDivElement | null>(null);
   const shellRef = useRef<HTMLDivElement | null>(null);
+  const listViewportRef = useRef<HTMLDivElement | null>(null);
   const previewRef = useRef<HTMLDivElement | null>(null);
+  const itemRefs = useRef<Array<HTMLButtonElement | null>>([]);
   const [activeIndex, setActiveIndex] = useState(0);
   const prefersReducedMotion = usePrefersReducedMotion();
 
@@ -82,7 +150,38 @@ export function CapabilityRail() {
     return () => context.revert();
   }, [activeIndex, prefersReducedMotion]);
 
+  useEffect(() => {
+    const viewport = listViewportRef.current;
+    const activeItem = itemRefs.current[activeIndex];
+    if (!viewport || !activeItem) return;
+
+    const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
+    if (!isDesktop) return;
+
+    const viewportRect = viewport.getBoundingClientRect();
+    const itemRect = activeItem.getBoundingClientRect();
+    const targetScrollTop =
+      activeItem.offsetTop -
+      viewport.clientHeight / 2 +
+      activeItem.clientHeight / 2;
+    const maxScroll = Math.max(
+      0,
+      viewport.scrollHeight - viewport.clientHeight,
+    );
+
+    if (
+      itemRect.top < viewportRect.top + 20 ||
+      itemRect.bottom > viewportRect.bottom - 20
+    ) {
+      viewport.scrollTo({
+        top: Math.min(Math.max(targetScrollTop, 0), maxScroll),
+        behavior: "smooth",
+      });
+    }
+  }, [activeIndex]);
+
   const activeCapability = capabilities[activeIndex];
+  const activeTheme = getCapabilityTheme(activeCapability.id);
 
   return (
     <section
@@ -111,66 +210,127 @@ export function CapabilityRail() {
           }
         />
 
-        <div ref={rootRef}>
+        <div className="grid gap-4 lg:hidden" data-reveal-group-soft>
+          {capabilities.map(capability => {
+            const theme = getCapabilityTheme(capability.id);
+
+            return (
+              <article
+                key={capability.id}
+                data-reveal-soft-item
+                className={`overflow-hidden rounded-[2rem] border border-zinc-200/70 bg-gradient-to-br ${capability.accent} p-5 shadow-[0_24px_70px_rgba(24,24,27,0.08)]`}
+              >
+                <div className={`rounded-[1.55rem] border p-5 ${theme.previewFrame}`}>
+                  <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-zinc-500">
+                    {capability.label}
+                  </p>
+                  <div className="mt-4 flex flex-col gap-3">
+                    <h3
+                      className={`text-2xl font-semibold tracking-[-0.045em] ${theme.previewTitle}`}
+                    >
+                      {capability.title}
+                    </h3>
+                    <span
+                      className={`w-fit rounded-xl px-3 py-2 text-sm font-semibold ${theme.metric}`}
+                    >
+                      {capability.metric}
+                    </span>
+                  </div>
+                  <p className={`mt-4 text-base leading-7 ${theme.previewBody}`}>
+                    {capability.body}
+                  </p>
+                </div>
+
+                <div className="mt-3 grid gap-2">
+                  {capability.bullets.map(bullet => (
+                    <p
+                      key={bullet}
+                      className={`rounded-[1.2rem] border px-4 py-3 text-sm leading-6 ${theme.bullet}`}
+                    >
+                      {bullet}
+                    </p>
+                  ))}
+                </div>
+              </article>
+            );
+          })}
+        </div>
+
+        <div ref={rootRef} className="hidden lg:block">
           <div
             ref={shellRef}
             className="grid gap-8 lg:min-h-[calc(100vh-6rem)] lg:grid-cols-[minmax(0,0.9fr)_minmax(420px,0.95fr)] lg:items-center"
           >
-            <div className="space-y-4" data-reveal-group>
-              {capabilities.map((capability, index) => (
-                <button
-                  key={capability.id}
-                  type="button"
-                  onClick={() => setActiveIndex(index)}
-                  data-reveal-item
-                  className={`w-full rounded-[2rem] border p-6 text-left transition duration-500 sm:p-7 ${
-                    index === activeIndex
-                      ? "border-zinc-950 bg-zinc-950 text-white shadow-[0_24px_70px_rgba(24,24,27,0.16)]"
-                      : "border-zinc-200/80 bg-white/80 text-zinc-950"
-                  }`}
-                >
-                  <p
-                    className={`font-mono text-[11px] uppercase tracking-[0.3em] ${
-                      index === activeIndex ? "text-white/60" : "text-zinc-500"
+            <div
+              ref={listViewportRef}
+              className="space-y-4 lg:max-h-[calc(100vh-8rem)] lg:overflow-y-auto lg:pr-3"
+              data-reveal-group
+            >
+              {capabilities.map((capability, index) => {
+                const isActive = index === activeIndex;
+                const itemTheme = getCapabilityTheme(capability.id);
+
+                return (
+                  <button
+                    key={capability.id}
+                    ref={element => {
+                      itemRefs.current[index] = element;
+                    }}
+                    type="button"
+                    onClick={() => setActiveIndex(index)}
+                    data-reveal-item
+                    className={`w-full rounded-[2rem] border p-6 text-left transition duration-500 sm:p-7 ${
+                      isActive
+                        ? itemTheme.activeCard
+                        : "border-zinc-200/80 bg-white/82 text-zinc-950"
                     }`}
                   >
-                    {capability.label}
-                  </p>
-                  <h3 className="mt-4 text-2xl font-semibold tracking-[-0.04em] sm:text-[1.9rem]">
-                    {capability.title}
-                  </h3>
-                  <p
-                    className={`mt-4 text-base leading-7 ${
-                      index === activeIndex ? "text-white/78" : "text-zinc-600"
-                    }`}
-                  >
-                    {capability.body}
-                  </p>
-                </button>
-              ))}
+                    <p
+                      className={`font-mono text-[11px] uppercase tracking-[0.3em] ${
+                        isActive ? itemTheme.activeLabel : "text-zinc-500"
+                      }`}
+                    >
+                      {capability.label}
+                    </p>
+                    <h3 className="mt-4 text-2xl font-semibold tracking-[-0.04em] sm:text-[1.9rem]">
+                      {capability.title}
+                    </h3>
+                    <p
+                      className={`mt-4 text-base leading-7 ${
+                        isActive ? itemTheme.activeBody : "text-zinc-600"
+                      }`}
+                    >
+                      {capability.body}
+                    </p>
+                  </button>
+                );
+              })}
             </div>
 
             <div
               ref={previewRef}
-              className={`overflow-hidden rounded-[2.3rem] border border-zinc-200/70 bg-gradient-to-br ${activeCapability.accent} p-6 shadow-[0_28px_80px_rgba(24,24,27,0.09)] sm:p-8 lg:self-center mt-[-200px]`}
+              className={`overflow-hidden rounded-[2.3rem] border border-zinc-200/70 bg-gradient-to-br ${activeCapability.accent} p-6 shadow-[0_28px_80px_rgba(24,24,27,0.09)] sm:p-8 lg:self-center`}
               data-reveal
             >
               <div
-                className="rounded-[1.8rem] border border-white/70 bg-white/78 p-5 shadow-sm backdrop-blur"
+                className={`rounded-[1.8rem] border p-5 shadow-sm backdrop-blur ${activeTheme.previewFrame}`}
                 data-preview-part
               >
-                {/* <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-zinc-500">
-                  Active capability
-                </p> */}
                 <div className="mt-5 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-                  <h3 className="max-w-md text-3xl font-semibold tracking-[-0.05em] text-zinc-950">
+                  <h3
+                    className={`max-w-md text-3xl font-semibold tracking-[-0.05em] ${activeTheme.previewTitle}`}
+                  >
                     {activeCapability.title}
                   </h3>
-                  <span className="w-fit rounded-xl bg-zinc-950 px-3 py-2 text-sm font-semibold text-white">
+                  <span
+                    className={`w-fit rounded-xl px-3 py-2 text-sm font-semibold ${activeTheme.metric}`}
+                  >
                     {activeCapability.metric}
                   </span>
                 </div>
-                <p className="mt-5 text-base leading-7 text-zinc-600">
+                <p
+                  className={`mt-5 text-base leading-7 ${activeTheme.previewBody}`}
+                >
                   {activeCapability.body}
                 </p>
               </div>
@@ -179,7 +339,7 @@ export function CapabilityRail() {
                 {activeCapability.bullets.map(bullet => (
                   <div
                     key={bullet}
-                    className="rounded-[1.35rem] border border-white/75 bg-white/72 px-4 py-4 text-sm leading-6 text-zinc-700 shadow-sm"
+                    className={`rounded-[1.35rem] border px-4 py-4 text-sm leading-6 shadow-sm ${activeTheme.bullet} ${activeCapability.accent.includes("zinc") && "text-white"}`}
                   >
                     {bullet}
                   </div>
@@ -187,14 +347,18 @@ export function CapabilityRail() {
               </div>
 
               <div
-                className="mt-5 rounded-[1.8rem] border border-zinc-200/70 bg-zinc-950 p-5 text-white shadow-xl"
+                className={`mt-5 rounded-[1.8rem] border p-5 shadow-xl ${activeTheme.stance}`}
                 data-preview-part
               >
                 <div className="flex items-center justify-between gap-4">
-                  <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-white/60">
+                  <p
+                    className={`font-mono text-[11px] uppercase tracking-[0.32em] ${activeTheme.stanceLabel}`}
+                  >
                     Delivery stance
                   </p>
-                  <FiArrowUpRight className="h-5 w-5 text-amber-300" />
+                  <FiArrowUpRight
+                    className={`h-5 w-5 ${activeTheme.stanceIcon}`}
+                  />
                 </div>
                 <p className="mt-4 max-w-lg text-lg leading-8 text-white/82">
                   We optimize for systems that keep their shape once usage,

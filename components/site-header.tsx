@@ -15,7 +15,7 @@ export function SiteHeader() {
   return (
     <header className="fixed inset-x-0 top-0 z-50">
       <Container className="pt-3 sm:pt-4">
-        <div className="rounded-3xl border border-white/55 bg-[rgba(247,247,243,0.86)] px-4 py-3 shadow-[0_24px_60px_rgba(24,24,27,0.08)] backdrop-blur-xl">
+        <div className="rounded-3xl border border-white/55 bg-[rgba(247,247,243,0.9)] px-4 py-3 shadow-[0_24px_60px_rgba(24,24,27,0.08)] backdrop-blur-xl">
           <div className="flex items-center justify-between gap-4">
             <Link href="/" className="flex items-center gap-3" aria-label="StableBuild home">
               <span className="w-10 shrink-0 overflow-hidden rounded-xl border border-zinc-200 bg-white p-1.5 shadow-sm">
@@ -76,36 +76,45 @@ export function SiteHeader() {
             </button>
           </div>
 
-          <div
-            className={cn(
-              "grid transition-[grid-template-rows,opacity] duration-300 lg:hidden",
-              open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
-            )}
-          >
-            <div className="overflow-hidden">
-              <nav className="mt-4 flex flex-col gap-2 border-t border-zinc-200 pt-4">
-                {navigation.map((item) => (
-                  <a
-                    key={item.href}
-                    href={item.href}
-                    onClick={() => setOpen(false)}
-                    className="rounded-2xl px-4 py-3 text-sm text-zinc-700 transition hover:bg-white hover:text-zinc-950"
-                  >
-                    {item.label}
-                  </a>
-                ))}
-                <a
-                  href="#contact"
-                  onClick={() => setOpen(false)}
-                  className="mt-2 inline-flex items-center justify-center rounded-2xl bg-zinc-950 px-4 py-3 text-sm font-semibold text-white"
-                >
-                  Book a call
-                </a>
-              </nav>
-            </div>
-          </div>
         </div>
       </Container>
+
+      <div
+        className={cn(
+          "pointer-events-none fixed inset-0 z-40 bg-zinc-950/25 opacity-0 backdrop-blur-sm transition duration-300 lg:hidden",
+          open && "pointer-events-auto opacity-100",
+        )}
+        onClick={() => setOpen(false)}
+        aria-hidden="true"
+      />
+      <div
+        className={cn(
+          "fixed inset-x-4 top-24 z-50 origin-top rounded-[2rem] border border-white/70 bg-[#fbfaf7]/95 p-4 shadow-[0_30px_90px_rgba(24,24,27,0.18)] backdrop-blur-xl transition duration-300 lg:hidden",
+          open
+            ? "translate-y-0 scale-100 opacity-100"
+            : "pointer-events-none -translate-y-3 scale-[0.98] opacity-0",
+        )}
+      >
+        <nav className="grid gap-2">
+          {navigation.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              onClick={() => setOpen(false)}
+              className="rounded-[1.35rem] border border-zinc-200/70 bg-white/80 px-4 py-3 text-sm font-medium text-zinc-700 transition hover:border-zinc-950 hover:text-zinc-950"
+            >
+              {item.label}
+            </a>
+          ))}
+          <a
+            href="#contact"
+            onClick={() => setOpen(false)}
+            className="mt-2 inline-flex items-center justify-center rounded-[1.35rem] bg-zinc-950 px-4 py-3 text-sm font-semibold text-white"
+          >
+            Book a call
+          </a>
+        </nav>
+      </div>
     </header>
   );
 }

@@ -16,13 +16,15 @@ export function RollingTagline() {
     const root = rootRef.current;
     if (!root || prefersReducedMotion) return;
 
-    const words = Array.from(root.querySelectorAll<HTMLElement>("[data-roll-word]"));
+    const words = Array.from(
+      root.querySelectorAll<HTMLElement>("[data-roll-word]"),
+    );
     if (!words.length) return;
 
     const context = gsap.context(() => {
       gsap.set(words, {
-        autoAlpha: (index) => (index === 0 ? 1 : 0),
-        yPercent: (index) => (index === 0 ? 0 : 36),
+        autoAlpha: index => (index === 0 ? 1 : 0),
+        yPercent: index => (index === 0 ? 0 : 36),
       });
 
       const timeline = gsap.timeline({
@@ -53,14 +55,14 @@ export function RollingTagline() {
   return (
     <span
       ref={rootRef}
-      className="relative inline-flex h-[1.08em] min-w-[5.6ch] overflow-hidden align-bottom text-ember"
+      className="relative inline-flex h-[1.08em] min-w-[6ch] overflow-hidden align-bottom text-ember"
       aria-label="stable, secure, confident"
     >
-      {WORDS.map((word) => (
+      {WORDS.map(word => (
         <span
           key={word}
           data-roll-word
-          className="absolute inset-0 flex items-center justify-start will-change-transform"
+          className="absolute inset-0 flex items-center justify-start will-change-transform w-full"
         >
           {word}
         </span>
