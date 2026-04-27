@@ -16,7 +16,7 @@ gsap.registerPlugin(ScrollTrigger);
 const capabilityThemes = {
   build: {
     activeCard:
-      "border-amber-200 bg-[linear-gradient(180deg,#111114_0%,#050507_100%)] text-white shadow-[0_24px_80px_rgba(250,101,30,0.18)]",
+      "border-amber-200 bg-[linear-gradient(180deg,#111114_0%,#050507_100%)] text-white ",
     activeLabel: "text-amber-200/70",
     activeBody: "text-white/82",
     previewFrame: "border-amber-200/60 bg-white/76",
@@ -30,7 +30,7 @@ const capabilityThemes = {
   },
   ai: {
     activeCard:
-      "border-zinc-700 bg-[linear-gradient(180deg,#0f1014_0%,#07080b_100%)] text-white shadow-[0_24px_80px_rgba(17,24,39,0.26)]",
+      "border-zinc-700 bg-[linear-gradient(180deg,#0f1014_0%,#07080b_100%)] text-white ",
     activeLabel: "text-orange-200/70",
     activeBody: "text-white/80",
     previewFrame:
@@ -45,7 +45,7 @@ const capabilityThemes = {
   },
   protocol: {
     activeCard:
-      "border-blue-300 bg-[linear-gradient(180deg,#ffffff_0%,#f7fafc_100%)] text-zinc-950 shadow-[0_24px_80px_rgba(59,130,246,0.12)]",
+      "border-blue-300 bg-[linear-gradient(180deg,#ffffff_0%,#f7fafc_100%)] text-zinc-950",
     activeLabel: "text-blue-700/70",
     activeBody: "text-zinc-700",
     previewFrame: "border-blue-100/80 bg-white/80",
@@ -59,7 +59,7 @@ const capabilityThemes = {
   },
   security: {
     activeCard:
-      "border-emerald-300 bg-[linear-gradient(180deg,#ffffff_0%,#f7fffb_100%)] text-zinc-950 shadow-[0_24px_80px_rgba(16,185,129,0.14)]",
+      "border-emerald-300 bg-[linear-gradient(180deg,#ffffff_0%,#f7fffb_100%)] text-zinc-950 ",
     activeLabel: "text-emerald-700/70",
     activeBody: "text-zinc-700",
     previewFrame: "border-emerald-100/90 bg-white/82",
@@ -218,7 +218,7 @@ export function CapabilityRail() {
               <article
                 key={capability.id}
                 data-reveal-soft-item
-                className={`overflow-hidden rounded-[2rem] border border-zinc-200/70 bg-gradient-to-br ${capability.accent} p-5 shadow-[0_24px_70px_rgba(24,24,27,0.08)]`}
+                className={`overflow-hidden rounded-[2rem] border border-zinc-200/70 bg-gradient-to-br ${capability.accent} p-5`}
               >
                 <div
                   className={`rounded-[1.55rem] border p-5 ${theme.previewFrame}`}
@@ -267,7 +267,7 @@ export function CapabilityRail() {
           >
             <div
               ref={listViewportRef}
-              className="space-y-4 lg:max-h-[calc(100vh-8rem)] lg:overflow-y-auto lg:pr-3"
+              className="capability-section space-y-4 lg:max-h-[calc(100vh-8rem)] lg:overflow-y-auto lg:pr-3"
               data-reveal-group
             >
               {capabilities.map((capability, index) => {
@@ -313,7 +313,7 @@ export function CapabilityRail() {
 
             <div
               ref={previewRef}
-              className={`overflow-hidden rounded-[2.3rem] border border-zinc-200/70 bg-gradient-to-br ${activeCapability.accent} p-6 shadow-[0_28px_80px_rgba(24,24,27,0.09)] sm:p-8 lg:self-center`}
+              className={`overflow-hidden rounded-[2.3rem] border border-zinc-200/70 bg-gradient-to-br ${activeCapability.accent} p-6 sm:p-8 lg:self-center`}
               data-reveal
             >
               <div

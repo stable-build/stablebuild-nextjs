@@ -84,7 +84,7 @@ export const tickerItems = [
 export const systems = [
   {
     id: "airaa",
-    badge: "Live production AI",
+    badge: "Live",
     title: "Airdrop intelligence pipeline",
     summary:
       "A self-improving multi-agent pipeline for airaa.xyz that turns noisy social data into scored market intelligence.",
@@ -103,7 +103,7 @@ export const systems = [
   },
   {
     id: "vault",
-    badge: "Live on Arbitrum",
+    badge: "Live",
     title: "Protocol-agnostic async vault",
     summary:
       "EIP-7540 vault infrastructure designed so future integrations can evolve through delegation caveats instead of contract rewrites.",
