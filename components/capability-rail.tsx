@@ -220,7 +220,9 @@ export function CapabilityRail() {
                 data-reveal-soft-item
                 className={`overflow-hidden rounded-[2rem] border border-zinc-200/70 bg-gradient-to-br ${capability.accent} p-5 shadow-[0_24px_70px_rgba(24,24,27,0.08)]`}
               >
-                <div className={`rounded-[1.55rem] border p-5 ${theme.previewFrame}`}>
+                <div
+                  className={`rounded-[1.55rem] border p-5 ${theme.previewFrame}`}
+                >
                   <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-zinc-500">
                     {capability.label}
                   </p>
@@ -236,7 +238,9 @@ export function CapabilityRail() {
                       {capability.metric}
                     </span>
                   </div>
-                  <p className={`mt-4 text-base leading-7 ${theme.previewBody}`}>
+                  <p
+                    className={`mt-4 text-base leading-7 ${theme.previewBody}`}
+                  >
                     {capability.body}
                   </p>
                 </div>
@@ -339,7 +343,7 @@ export function CapabilityRail() {
                 {activeCapability.bullets.map(bullet => (
                   <div
                     key={bullet}
-                    className={`rounded-[1.35rem] border px-4 py-4 text-sm leading-6 shadow-sm ${activeTheme.bullet} ${activeCapability.accent.includes("zinc") && "text-white"}`}
+                    className={`rounded-[1.35rem] border px-4 py-4 text-sm leading-6 shadow-sm ${activeTheme.bullet} ${activeCapability.accent.includes("zinc") ? "!text-white" : ""}`}
                   >
                     {bullet}
                   </div>
