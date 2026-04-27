@@ -172,7 +172,7 @@ export const capabilities = [
     title: "Full-stack delivery without orchestration drag.",
     body: "Marketing sites, product dashboards, web apps, mobile apps, browser extensions, APIs, infra, and observability all live inside one execution loop.",
     bullets: [
-      "React, Next.js, React Native, NestJS, FastAPI",
+      "React/Next, React Native, Node.js, FastAPI, Rust, Golang, Kubernetes, PostgreSQL, Docker, Plasmo, Grafana, Prometheus",
       "Design, implementation, CI/CD, QA, deployment",
       "Built for founders who need execution velocity without managing multiple vendors",
     ],
@@ -196,11 +196,11 @@ export const capabilities = [
     id: "protocol",
     label: "Handle protocol-grade complexity",
     title: "From wallet UX to protocol logic to execution tooling.",
-    body: "The same team that builds polished frontend interfaces can also reason about calldata generation, delegation models, token approvals, and protocol integration surfaces.",
+    body: "The same team that builds polished frontend interfaces can also develop smart contracts, reason about calldata generation, delegation models, and protocol integration surfaces.",
     bullets: [
-      "Vaults, DeFi widgets, extensions, wallets, smart contracts",
+      "Vaults, DeFi Widgets, Extensions, Smart Contracts",
       "Cross-chain and multi-ecosystem coverage",
-      "Execution paths validated against real or forked environments",
+      "Execution paths validated against real & forked environments",
     ],
     metric: "Live on Arbitrum",
     accent: "from-orange-200 via-amber-100 to-stone-50",
@@ -266,7 +266,7 @@ export const collectiveStrengths = [
     title: "Real systems, not polished demos",
     body: "The work shown here includes production AI pipelines, mainnet vault infrastructure, adopted CI templates, and audit tooling benchmarked against paid findings.",
     proof:
-      "Buyers can judge shipped behavior instead of only evaluating process claims.",
+      "Clients can judge shipped behavior instead of only evaluating process claims.",
   },
 ];
 

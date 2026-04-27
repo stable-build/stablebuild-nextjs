@@ -7,7 +7,10 @@ import { SectionHeading } from "./section-heading";
 
 export function CaseStudyGrid() {
   return (
-    <section id="systems" className="border-t border-zinc-200/80 bg-white/60 py-20 sm:py-24 lg:py-28">
+    <section
+      id="systems"
+      className="border-t border-zinc-200/80 bg-white/60 py-20 sm:py-24 lg:py-28"
+    >
       <Container className="space-y-12">
         <SectionHeading
           eyebrow="Selected systems"
@@ -20,14 +23,16 @@ export function CaseStudyGrid() {
           }
           description={
             <p>
-              We are leading with shipped systems and hard technical decisions because that is the
-              part buyers can trust, especially when the team is still winning its first wave of
-              studio clients.
+              We are leading with shipped systems and hard technical decisions,
+              which are the parts, clients can trust.
             </p>
           }
         />
 
-        <div className="grid gap-5 lg:grid-cols-2 xl:grid-cols-3" data-reveal-group-soft>
+        <div
+          className="grid gap-5 lg:grid-cols-2 xl:grid-cols-3"
+          data-reveal-group-soft
+        >
           {systems.map((system, index) => (
             <article
               key={system.id}
@@ -54,12 +59,14 @@ export function CaseStudyGrid() {
               <h3 className="mt-5 text-[1.85rem] font-semibold leading-[1.02] tracking-[-0.045em] text-zinc-950">
                 {system.title}
               </h3>
-              <p className="mt-4 text-base leading-7 text-zinc-600">{system.summary}</p>
+              <p className="mt-4 text-base leading-7 text-zinc-600">
+                {system.summary}
+              </p>
               <p className="mt-4 rounded-[1.4rem] border border-zinc-200/80 bg-white/70 p-4 text-sm leading-6 text-zinc-700">
                 {system.impact}
               </p>
               <div className="mt-6 flex flex-wrap gap-2">
-                {system.stack.map((item) => (
+                {system.stack.map(item => (
                   <span
                     key={item}
                     className="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-zinc-600"

@@ -18,9 +18,9 @@ export function FaqSection() {
           eyebrow="FAQ"
           title={
             <>
-              Questions buyers actually ask
+              Questions clients actually ask
               <br />
-              <span className="text-zinc-500">before the first project lands.</span>
+              <span className="text-zinc-500">before the project lands.</span>
             </>
           }
         />
@@ -53,11 +53,15 @@ export function FaqSection() {
                 </button>
                 <div
                   className={`grid transition-[grid-template-rows,opacity] duration-300 ${
-                    open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                    open
+                      ? "grid-rows-[1fr] opacity-100"
+                      : "grid-rows-[0fr] opacity-0"
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <p className="pb-4 text-base leading-7 text-zinc-600">{faq.answer}</p>
+                    <p className="pb-4 text-base leading-7 text-zinc-600">
+                      {faq.answer}
+                    </p>
                   </div>
                 </div>
               </div>
