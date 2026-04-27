@@ -55,8 +55,9 @@ export function SecuritySection() {
                   6 / 8
                 </p>
                 <p className="mt-3 text-sm leading-6 text-white/70">
-                  SentinelAI matched six of eight paid audit findings and
-                  flagged eight more valid vulnerabilities in benchmark testing.
+                  Our AI Auditor reproduced 6 of 8 paid findings and surfaced 8
+                  additional valid vulnerabilities, backed by a professional
+                  security auditor on the team.
                 </p>
               </div>
             </div>

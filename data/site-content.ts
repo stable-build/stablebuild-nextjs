@@ -8,29 +8,29 @@ export const navigation = [
 export const heroStats = [
   {
     value: "20+",
-    label: "Protocols shipped",
+    label: "Protocols, products, and client systems shipped or audited",
   },
   {
     value: "4",
-    label: "Global markets across IN, SG, UK, and US",
+    label: "India, Singapore, UK, and US production exposure",
   },
   {
     value: "3",
-    label: "Product, AI, and protocol stacks under one team",
+    label: "AI systems, protocol engineering, and product delivery in one team",
   },
   {
     value: "1",
-    label: "Senior delivery standard across the full stack",
+    label: "Team that scopes, builds, secures, and ships end to end",
   },
 ];
 
 export const trustSignals = [
-  "airaa.xyz live in production",
-  "Arbitrum mainnet vault shipped",
-  "Client-ready Base widget shipped",
-  "Production CI templates adopted",
-  "NDA trading agent validated",
-  "Offline audit tooling benchmarked",
+  "10K+ tweets/day pipeline live at airaa.xyz",
+  "EIP-7540 async vault live on Arbitrum mainnet",
+  "Coinbase CDP Base widget shipped with E2E coverage",
+  "CI/CD template adopted by Liquity and Consensys",
+  "GMX x Allora trading agent validated on a Tenderly fork",
+  "45+ High/Medium findings across 20+ protocol engagements",
 ];
 
 export const proofCards = [

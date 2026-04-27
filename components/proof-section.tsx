@@ -8,18 +8,21 @@ export function ProofSection() {
     <section id="proof" className="py-20 sm:py-24 lg:py-28">
       <Container className="space-y-12">
         <SectionHeading
-          eyebrow="Why teams hire us"
+          eyebrow="Why top teams choose us"
           title={
             <>
-              Evidence first.
+              Proof over promises.
               <br />
-              <span className="text-zinc-500">Not empty agency language.</span>
+              <span className="text-zinc-500">
+                Real impact, not agency fluff.
+              </span>
             </>
           }
           description={
             <p>
-              StableBuild should feel like an execution partner with unusual depth across product,
-              AI, and protocol systems, not a bundle of individual resumes stitched together.
+              StableBuild is a full-stack execution partner with deep product,
+              AI, and protocol expertise — not a stack of resumes pasted
+              together.
             </p>
           }
         />
@@ -40,9 +43,11 @@ export function ProofSection() {
                 <h3 className="mt-4 max-w-xl text-2xl font-semibold tracking-[-0.04em] text-zinc-950 sm:text-[1.95rem]">
                   {card.title}
                 </h3>
-                <p className="mt-4 max-w-2xl text-base leading-7 text-zinc-600">{card.body}</p>
+                <p className="mt-4 max-w-2xl text-base leading-7 text-zinc-600">
+                  {card.body}
+                </p>
                 <div className="mt-6 flex flex-wrap gap-2">
-                  {card.points.map((point) => (
+                  {card.points.map(point => (
                     <span
                       key={point}
                       className="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1.5 text-xs font-medium uppercase tracking-[0.2em] text-zinc-600"
