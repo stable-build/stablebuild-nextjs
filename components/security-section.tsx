@@ -7,15 +7,16 @@ export function SecuritySection() {
       <Container className="space-y-12">
         <SectionHeading
           eyebrow="Security-first development"
+          tone="dark"
           title={
             <>
               We do not bolt security on.
               <br />
-              <span className="text-white/60">We build with it from the start.</span>
+              <span className="text-amber-100">We build with it from the start.</span>
             </>
           }
           description={
-            <p className="text-white/72">
+            <p className="text-white/82">
               The fastest way to lose trust is to ship a system that needs its architecture
               rewritten once audit, scale, or failure modes show up. That is the exact pattern we
               are designed to prevent.

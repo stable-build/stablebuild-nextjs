@@ -20,16 +20,15 @@ export function RollingTagline() {
     if (!words.length) return;
 
     const context = gsap.context(() => {
-      gsap.set(root, { perspective: 640 });
       gsap.set(words, {
-        rotationX: (index) => (index === 0 ? 0 : -90),
-        transformOrigin: "50% 50% -42px",
+        autoAlpha: (index) => (index === 0 ? 1 : 0),
+        yPercent: (index) => (index === 0 ? 0 : 36),
       });
 
       const timeline = gsap.timeline({
         repeat: -1,
         delay: 1.4,
-        defaults: { ease: "power2.inOut" },
+        defaults: { ease: "power3.inOut" },
       });
 
       for (let index = 0; index < words.length; index += 1) {
@@ -38,9 +37,9 @@ export function RollingTagline() {
 
         timeline
           .to({}, { duration: 2.1 })
-          .to(current, { rotationX: 90, duration: 0.55 })
-          .to(next, { rotationX: 0, duration: 0.55 }, "<")
-          .set(current, { rotationX: -90 });
+          .to(current, { autoAlpha: 0, yPercent: -34, duration: 0.48 })
+          .to(next, { autoAlpha: 1, yPercent: 0, duration: 0.48 }, "<")
+          .set(current, { yPercent: 36 });
       }
     }, root);
 
@@ -54,7 +53,7 @@ export function RollingTagline() {
   return (
     <span
       ref={rootRef}
-      className="relative inline-flex h-[1.1em] min-w-[5.5ch] overflow-hidden align-bottom text-ember"
+      className="relative inline-flex h-[1.08em] min-w-[5.6ch] overflow-hidden align-bottom text-ember"
       aria-label="stable, secure, confident"
     >
       {WORDS.map((word) => (

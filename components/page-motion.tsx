@@ -30,23 +30,52 @@ export function PageMotion() {
         },
       );
 
-      gsap.utils.toArray<HTMLElement>("[data-reveal]").forEach((element) => {
+      gsap.utils.toArray<HTMLElement>("[data-reveal-group]").forEach((group) => {
+        const items = Array.from(group.querySelectorAll<HTMLElement>("[data-reveal-item]"));
+        if (!items.length) return;
+
         gsap.fromTo(
-          element,
+          items,
           {
-            y: 24,
+            y: 34,
             opacity: 0,
-            clipPath: "inset(0 0 16% 0)",
+            clipPath: "inset(0 0 12% 0)",
           },
           {
             y: 0,
             opacity: 1,
             clipPath: "inset(0 0 0% 0)",
-            duration: 0.78,
-            ease: "power2.out",
+            duration: 0.92,
+            ease: "power3.out",
+            stagger: 0.11,
+            scrollTrigger: {
+              trigger: group,
+              start: "top 84%",
+              once: true,
+            },
+          },
+        );
+      });
+
+      gsap.utils.toArray<HTMLElement>("[data-reveal]").forEach((element) => {
+        if (element.closest("[data-reveal-group]")) return;
+
+        gsap.fromTo(
+          element,
+          {
+            y: 26,
+            opacity: 0,
+            clipPath: "inset(0 0 10% 0)",
+          },
+          {
+            y: 0,
+            opacity: 1,
+            clipPath: "inset(0 0 0% 0)",
+            duration: 0.86,
+            ease: "power3.out",
             scrollTrigger: {
               trigger: element,
-              start: "top 88%",
+              start: "top 86%",
               once: true,
             },
           },

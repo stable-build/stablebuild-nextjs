@@ -34,7 +34,7 @@ export function CtaFooter() {
               without making it fragile.
             </h2>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-white/72">
-              If you need a small team that can ship product, AI systems, and security-sensitive
+              If you need a senior team that can ship product, AI systems, and security-sensitive
               infrastructure without outsourcing the hard parts, we should talk.
             </p>
           </div>

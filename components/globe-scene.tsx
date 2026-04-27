@@ -339,7 +339,7 @@ export function GlobeScene() {
     renderer.setClearColor(0x000000, 0);
     root.appendChild(renderer.domElement);
 
-    const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 120);
+    const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 120);
     camera.position.z = 6.8;
 
     const controls = new OrbitControls(camera, renderer.domElement);
@@ -523,12 +523,12 @@ export function GlobeScene() {
     resizeObserver.observe(root);
     updateSize();
 
-    const clock = new THREE.Clock();
+    const clock = new THREE.Timer();
     let frame = 0;
 
     const animate = () => {
       frame = window.requestAnimationFrame(animate);
-      const elapsed = clock.getElapsedTime();
+      const elapsed = clock.getTimescale();
       cameraDirection.copy(camera.position).normalize();
 
       nodes.forEach((node, index) => {

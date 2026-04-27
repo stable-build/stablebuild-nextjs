@@ -16,16 +16,16 @@ const GlobeScene = dynamic(
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden pt-28 sm:pt-32 lg:pt-36">
-      <div className="absolute inset-x-0 top-0 -z-20 h-[820px] bg-[radial-gradient(circle_at_top,rgba(250,101,30,0.18),transparent_40%),linear-gradient(180deg,#fffefb_0%,#f7f7f3_42%,#f3efe7_100%)]" />
+    <section className="relative overflow-hidden pt-24 sm:pt-28 lg:pt-32">
+      <div className="absolute inset-x-0 top-0 -z-20 h-[820px] bg-[radial-gradient(circle_at_top,rgba(250,101,30,0.14),transparent_42%),linear-gradient(180deg,#fffefb_0%,#f7f7f3_46%,#f3efe7_100%)]" />
       <div className="absolute inset-x-0 top-0 -z-10 h-[720px] opacity-80">
         <CharGridCanvas />
       </div>
       <div className="pointer-events-none absolute inset-x-0 top-10 -z-10 mx-auto h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(250,101,30,0.16),transparent_70%)] blur-3xl sm:h-[32rem] sm:w-[32rem]" />
 
       <Container>
-        <div className="grid gap-12 lg:grid-cols-[minmax(0,1.04fr)_minmax(420px,0.96fr)] lg:items-center">
-          <div className="max-w-3xl">
+        <div className="grid gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(420px,1.05fr)] lg:items-center">
+          <div className="max-w-[46rem]">
             <div
               className="inline-flex items-center gap-2 rounded-full border border-white/70 bg-white/80 px-4 py-2 text-xs font-medium uppercase tracking-[0.28em] text-zinc-600 shadow-sm backdrop-blur"
               data-reveal
@@ -35,7 +35,7 @@ export function HeroSection() {
             </div>
 
             <h1
-              className="mt-6 max-w-5xl font-display text-[3rem] leading-[0.93] tracking-[-0.055em] text-zinc-950 sm:text-[4.35rem] lg:text-[5.7rem]"
+              className="mt-6 max-w-5xl font-display text-[2.85rem] leading-[0.94] tracking-[-0.055em] text-zinc-950 sm:text-[4rem] lg:text-[4.95rem] xl:text-[5.25rem]"
               data-reveal
             >
               Build fast.
@@ -89,24 +89,24 @@ export function HeroSection() {
                 <div className="flex items-center gap-2 text-zinc-500">
                   <FiZap className="h-4 w-4 text-ember" />
                   <span className="font-mono text-[11px] uppercase tracking-[0.3em]">
-                    Fast execution
+                    Senior execution
                   </span>
                 </div>
                 <p className="mt-3 text-sm leading-6 text-zinc-600">
-                  Two builders covering product, AI, infra, smart contracts, and delivery.
+                  Product, AI, infra, smart contracts, and delivery handled in one senior loop.
                 </p>
               </div>
               <div className="rounded-[1.5rem] border border-zinc-200/80 bg-zinc-50/70 p-4">
                 <div className="flex items-center gap-2 text-zinc-500">
                   <span className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-zinc-950 text-[10px] text-white">
-                    0
+                    1
                   </span>
                   <span className="font-mono text-[11px] uppercase tracking-[0.3em]">
-                    Handoffs
+                    Aligned team
                   </span>
                 </div>
                 <p className="mt-3 text-sm leading-6 text-zinc-600">
-                  The people presenting the scope are the same people writing the code.
+                  Strategy, product judgment, and engineering execution stay connected.
                 </p>
               </div>
             </div>

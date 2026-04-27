@@ -9,7 +9,7 @@ export const heroStats = [
   { value: "45", suffix: " H/M", label: "Security findings across 20+ protocols" },
   { value: "10K+", label: "Signals processed daily in live AI systems" },
   { value: "50+", label: "Adoptions driven by integration work" },
-  { value: "0", suffix: " middlemen", label: "The people pitching are the people shipping" },
+  { value: "1", suffix: " team", label: "Strategy, engineering, security, and delivery aligned" },
 ];
 
 export const trustSignals = [
@@ -45,9 +45,9 @@ export const proofCards = [
   },
   {
     eyebrow: "Full-stack ownership",
-    title: "Two builders, full product surface, no handoffs.",
+    title: "One integrated execution surface across product, protocol, and AI.",
     body:
-      "Frontend, backend, infra, contracts, AI pipelines, dashboards, extensions, mobile, observability, and CI are all part of the same delivery surface.",
+      "Frontend, backend, infra, contracts, AI pipelines, dashboards, extensions, mobile, observability, and CI are treated as one system instead of separate vendor lanes.",
     points: ["Next.js", "React Native", "NestJS", "Docker"],
   },
 ];
@@ -156,7 +156,7 @@ export const capabilities = [
       "Design, implementation, CI/CD, QA, deployment",
       "Built for founders who need execution velocity without managing multiple vendors",
     ],
-    metric: "0 handoffs",
+    metric: "One execution loop",
     accent: "from-amber-200 via-orange-100 to-white",
   },
   {
@@ -222,6 +222,27 @@ export const founderBlurbs = [
   },
 ];
 
+export const collectiveStrengths = [
+  {
+    title: "Product speed with security judgment",
+    body:
+      "The same planning loop considers UX, data flow, protocol risk, observability, and release sequencing before implementation starts.",
+    proof: "Security thinking is present during architecture, not saved for a late audit pass.",
+  },
+  {
+    title: "Breadth without vendor sprawl",
+    body:
+      "StableBuild can ship the frontend, backend, AI pipeline, smart contract path, and deployment surface without splitting ownership across disconnected teams.",
+    proof: "Fewer translation layers means faster decisions and cleaner accountability.",
+  },
+  {
+    title: "Real systems, not polished demos",
+    body:
+      "The work shown here includes production AI pipelines, mainnet vault infrastructure, adopted CI templates, and audit tooling benchmarked against paid findings.",
+    proof: "Buyers can judge shipped behavior instead of only evaluating process claims.",
+  },
+];
+
 export const recognitionItems = [
   "Nethermind",
   "LI.FI",
@@ -261,6 +282,6 @@ export const faqs = [
   {
     question: "Who will actually do the work?",
     answer:
-      "The same people you talk to. StableBuild is intentionally small, so the founders who scope the project are also the engineers building it.",
+      "The same senior team you talk to owns the work. Strategy, product judgment, engineering, and security review stay connected from scope through release.",
   },
 ];

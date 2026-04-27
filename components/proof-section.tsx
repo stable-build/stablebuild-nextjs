@@ -24,11 +24,11 @@ export function ProofSection() {
           }
         />
 
-        <div className="grid gap-4 lg:grid-cols-2">
+        <div className="grid gap-4 lg:grid-cols-2" data-reveal-group>
           {proofCards.map((card, index) => (
             <article
               key={card.title}
-              data-reveal
+              data-reveal-item
               className="group relative overflow-hidden rounded-[2rem] border border-zinc-200/80 bg-white p-6 shadow-panel transition hover:-translate-y-0.5 hover:shadow-glow sm:p-7"
               style={{ transitionDelay: `${index * 60}ms` }}
             >
