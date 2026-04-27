@@ -211,11 +211,11 @@ export const capabilities = [
     title: "Auditor-grade review thinking before the external audit.",
     body: "Security is part of product architecture, code review, and delivery sequencing. That means fewer avoidable rewrites, cleaner audits, and safer first releases.",
     bullets: [
-      "45 H/M findings across six audit firms and five ecosystems",
+      "45+ H/M findings across six audit firms and five ecosystems",
       "Threat modeling and attack-surface awareness at implementation time",
       "Lower downstream audit friction because the fundamentals are handled early",
     ],
-    metric: "45 H/M findings",
+    metric: "45+ H/M findings",
     accent: "from-emerald-100 via-stone-50 to-white",
   },
 ];
@@ -238,7 +238,7 @@ export const founderBlurbs = [
     name: "Uzair Saiyed",
     role: "Security-first product and protocol engineer",
     summary:
-      "Combines full-stack product shipping with serious smart contract security depth, including Nethermind audit experience and 45 H/M findings across multiple ecosystems.",
+      "Combines full-stack product shipping with serious smart contract security depth, including Nethermind audit experience and 45+ H/M findings across multiple ecosystems.",
     focus: [
       "Audit methodology",
       "Arbitrum vaults",

@@ -7,14 +7,19 @@ import { SiteHeader } from "@/components/site-header";
 import "./globals.css";
 
 const siteUrl = "https://stablebuild.tech";
-const ogImage = "/og/stablebuild-og.png";
+const siteName = "StableBuild";
+const siteDescription =
+  "StableBuild is a founder-led full-stack studio shipping secure product systems, AI workflows, and protocol-grade infrastructure without handoffs.";
+const ogImage = "/opengraph-image";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "StableBuild | Security-first full-stack systems for AI, product, and protocol teams",
-  description:
-    "StableBuild is a founder-led full-stack studio shipping secure product systems, AI workflows, and protocol-grade infrastructure without handoffs.",
-  applicationName: "StableBuild",
+  title: {
+    default: siteName,
+    template: "%s | StableBuild",
+  },
+  description: siteDescription,
+  applicationName: siteName,
   keywords: [
     "full-stack studio",
     "security-first development",
@@ -25,35 +30,37 @@ export const metadata: Metadata = {
     "LangGraph development",
     "Web3 product studio",
   ],
-  authors: [{ name: "StableBuild" }],
-  creator: "StableBuild",
-  publisher: "StableBuild",
+  authors: [{ name: siteName }],
+  creator: siteName,
+  publisher: siteName,
   alternates: {
     canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    "max-image-preview": "large",
+    "max-snippet": -1,
+    "max-video-preview": -1,
   },
   openGraph: {
     type: "website",
     url: siteUrl,
+    locale: "en_US",
     title: "StableBuild | Build fast. Build stable. Ship confident.",
     description:
       "A security-first full-stack studio for product systems, AI workflows, and protocol-grade engineering.",
-    siteName: "StableBuild",
+    siteName,
     images: [
       {
         url: ogImage,
         width: 1200,
         height: 630,
-        alt: "StableBuild",
+        alt: "StableBuild homepage preview with security-first product and protocol messaging",
       },
     ],
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "StableBuild | Build fast. Build stable. Ship confident.",
-    description:
-      "Security-first full-stack systems for AI, product, and protocol teams.",
-    images: [ogImage],
-  },
+  manifest: "/favicon/site.webmanifest",
   icons: {
     icon: [
       { url: "/favicon/favicon.svg", type: "image/svg+xml" },
@@ -72,8 +79,8 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className="bg-paper font-sans text-zinc-950 antialiased">
+    <html lang="en" className="scroll-smooth overflow-x-hidden">
+      <body className="overflow-x-hidden bg-paper font-sans text-zinc-950 antialiased">
         <div
           id="scroll-progress"
           className="fixed inset-x-0 top-0 z-[80] h-1 origin-left scale-x-0 bg-[linear-gradient(90deg,#fa651e,#1f2937)]"

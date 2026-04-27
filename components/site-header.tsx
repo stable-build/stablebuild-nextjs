@@ -17,15 +17,19 @@ export function SiteHeader() {
       <Container className="pt-3 sm:pt-4">
         <div className="rounded-3xl border border-white/55 bg-[rgba(247,247,243,0.9)] px-4 py-3 shadow-[0_24px_60px_rgba(24,24,27,0.08)] backdrop-blur-xl">
           <div className="flex items-center justify-between gap-4">
-            <Link href="/" className="flex items-center gap-3" aria-label="StableBuild home">
+            <Link
+              href="/"
+              className="flex min-w-0 items-center gap-3"
+              aria-label="StableBuild home"
+            >
               <span className="w-10 shrink-0 overflow-hidden rounded-xl border border-zinc-200 bg-white p-1.5 shadow-sm">
                 <BrandMark />
               </span>
-              <span className="flex flex-col">
-                <span className="font-display text-xl tracking-[-0.04em] text-zinc-950">
+              <span className="flex min-w-0 flex-col">
+                <span className="font-display text-lg tracking-[-0.04em] text-zinc-950 sm:text-xl">
                   StableBuild
                 </span>
-                <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-zinc-500">
+                <span className="hidden font-mono text-[10px] uppercase tracking-[0.3em] text-zinc-500 sm:block">
                   Build fast. Build stable.
                 </span>
               </span>
@@ -89,7 +93,7 @@ export function SiteHeader() {
       />
       <div
         className={cn(
-          "fixed inset-x-4 top-24 z-50 origin-top rounded-[2rem] border border-white/70 bg-[#fbfaf7]/95 p-4 shadow-[0_30px_90px_rgba(24,24,27,0.18)] backdrop-blur-xl transition duration-300 lg:hidden",
+          "fixed inset-x-4 top-24 z-50 max-h-[calc(100dvh-7rem)] origin-top overflow-y-auto rounded-[2rem] border border-white/70 bg-[#fbfaf7]/95 p-4 shadow-[0_30px_90px_rgba(24,24,27,0.18)] backdrop-blur-xl transition duration-300 lg:hidden",
           open
             ? "translate-y-0 scale-100 opacity-100"
             : "pointer-events-none -translate-y-3 scale-[0.98] opacity-0",

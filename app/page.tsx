@@ -11,12 +11,17 @@ import { SecuritySection } from "@/components/security-section";
 import { faqs } from "@/data/site-content";
 
 export default function HomePage() {
+  const siteUrl = "https://stablebuild.tech";
+  const siteImage = `${siteUrl}/opengraph-image`;
+
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": `${siteUrl}/#organization`,
     name: "StableBuild",
-    url: "https://stablebuild.tech",
-    logo: "https://stablebuild.tech/favicon/logo-light.svg",
+    url: siteUrl,
+    logo: `${siteUrl}/favicon/logo-light.svg`,
+    image: siteImage,
     description:
       "Security-first full-stack systems for AI, product, and protocol teams.",
     sameAs: [
@@ -27,14 +32,32 @@ export default function HomePage() {
     ],
   };
 
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${siteUrl}/#website`,
+    name: "StableBuild",
+    url: siteUrl,
+    description:
+      "Security-first full-stack systems for AI, product, and protocol teams.",
+    publisher: {
+      "@id": `${siteUrl}/#organization`,
+    },
+    inLanguage: "en-US",
+  };
+
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
+    "@id": `${siteUrl}/#service`,
     name: "StableBuild",
-    url: "https://stablebuild.tech",
+    url: siteUrl,
     description:
       "Founder-led full-stack delivery for AI systems, product platforms, protocol engineering, and security-first builds.",
     areaServed: "Worldwide",
+    provider: {
+      "@id": `${siteUrl}/#organization`,
+    },
     serviceType: [
       "Full-stack development",
       "AI systems engineering",
@@ -61,6 +84,10 @@ export default function HomePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
       />
       <script
         type="application/ld+json"

@@ -249,7 +249,7 @@ export function CapabilityRail() {
                   {capability.bullets.map(bullet => (
                     <p
                       key={bullet}
-                      className={`rounded-[1.2rem] border px-4 py-3 text-sm leading-6 ${theme.bullet}`}
+                      className={`rounded-[1.2rem] border px-4 py-3 text-sm leading-6 ${theme.bullet} ${capability.accent.includes("zinc") ? "text-zinc-100" : ""}`}
                     >
                       {bullet}
                     </p>
@@ -343,7 +343,7 @@ export function CapabilityRail() {
                 {activeCapability.bullets.map(bullet => (
                   <div
                     key={bullet}
-                    className={`rounded-[1.35rem] border px-4 py-4 text-sm leading-6 shadow-sm ${activeTheme.bullet} ${activeCapability.accent.includes("zinc") ? "!text-white" : ""}`}
+                    className={`rounded-[1.35rem] border px-4 py-4 text-sm leading-6 shadow-sm ${activeTheme.bullet} ${activeCapability.accent.includes("zinc") ? "text-white" : ""}`}
                   >
                     {bullet}
                   </div>

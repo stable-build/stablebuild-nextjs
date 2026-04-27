@@ -10,7 +10,7 @@ import { Container } from "./container";
 import { RollingTagline } from "./rolling-tagline";
 
 const GlobeScene = dynamic(
-  () => import("./globe-scene").then((module) => module.GlobeScene),
+  () => import("./globe-scene").then(module => module.GlobeScene),
   { ssr: false },
 );
 
@@ -35,7 +35,7 @@ export function HeroSection() {
             </div>
 
             <h1
-              className="mt-6 max-w-5xl font-display text-[2.85rem] leading-[0.94] tracking-[-0.055em] text-zinc-950 sm:text-[4rem] lg:text-[4.95rem] xl:text-[5.25rem]"
+              className="mt-6 max-w-5xl font-display text-[clamp(2.45rem,10vw,5.25rem)] leading-[0.94] tracking-[-0.055em] text-zinc-950 sm:text-[4rem] lg:text-[4.95rem] xl:text-[5.25rem]"
               data-reveal
             >
               Build fast.
@@ -49,29 +49,29 @@ export function HeroSection() {
               className="mt-6 max-w-2xl text-lg leading-8 text-zinc-600 sm:text-xl"
               data-reveal
             >
-              StableBuild is a security-first full-stack studio for teams that need product
-              systems, AI workflows, and protocol-grade engineering shipped by the same people
-              who scoped the work.
+              StableBuild is a security-first full-stack studio for teams that
+              need product systems, AI workflows, and protocol-grade engineering
+              shipped by the same people who scoped the work.
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row" data-reveal>
               <a
                 href="#contact"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-zinc-950 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-ember"
+                className="inline-flex items-center justify-center gap-2 lg:w-full md:w-full w-[95%]  rounded-full bg-zinc-950 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-ember"
               >
                 Book a 30-min call
                 <FiArrowRight className="h-4 w-4" />
               </a>
               <a
                 href="#systems"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-zinc-300 bg-white/90 px-6 py-3.5 text-sm font-semibold text-zinc-800 transition hover:border-zinc-900 hover:text-zinc-950"
+                className="inline-flex items-center justify-center gap-2  lg:w-full md:w-full w-[95%] rounded-full border border-zinc-300 bg-white/90 px-6 py-3.5 text-sm font-semibold text-zinc-800 transition hover:border-zinc-900 hover:text-zinc-950"
               >
                 See selected systems
               </a>
             </div>
 
             <div
-              className="mt-8 grid gap-3 rounded-[2rem] border border-white/70 bg-white/75 p-4 shadow-[0_20px_70px_rgba(15,23,42,0.06)] backdrop-blur sm:grid-cols-3 lg:mt-10"
+              className="mt-8 grid gap-3 rounded-[2rem] border border-white/70 bg-white/75 p-4 shadow-[0_20px_70px_rgba(15,23,42,0.06)] backdrop-blur sm:grid-cols-3 lg:mt-10 lg:w-full md:w-full w-[95%]"
               data-reveal
             >
               <div className="rounded-[1.5rem] border border-zinc-200/80 bg-zinc-50/70 p-4">
@@ -82,7 +82,8 @@ export function HeroSection() {
                   </span>
                 </div>
                 <p className="mt-3 text-sm leading-6 text-zinc-600">
-                  Auditor-grade review thinking is part of delivery, not an afterthought.
+                  Auditor-grade review thinking is part of delivery, not an
+                  afterthought.
                 </p>
               </div>
               <div className="rounded-[1.5rem] border border-zinc-200/80 bg-zinc-50/70 p-4">
@@ -93,7 +94,8 @@ export function HeroSection() {
                   </span>
                 </div>
                 <p className="mt-3 text-sm leading-6 text-zinc-600">
-                  Product, AI, infra, smart contracts, and delivery handled in one senior loop.
+                  Product, AI, infra, smart contracts, and delivery handled in
+                  one senior loop.
                 </p>
               </div>
               <div className="rounded-[1.5rem] border border-zinc-200/80 bg-zinc-50/70 p-4">
@@ -106,23 +108,29 @@ export function HeroSection() {
                   </span>
                 </div>
                 <p className="mt-3 text-sm leading-6 text-zinc-600">
-                  Strategy, product judgment, and engineering execution stay connected.
+                  Strategy, product judgment, and engineering execution stay
+                  connected.
                 </p>
               </div>
             </div>
-
           </div>
 
           <div className="order-first lg:order-none">
-            <div data-reveal className="mx-auto max-w-[24rem] lg:max-w-none lg:pl-2">
+            <div
+              data-reveal
+              className="mx-auto max-w-[24rem] lg:max-w-none lg:pl-2"
+            >
               <GlobeScene />
             </div>
           </div>
         </div>
 
-        <div className="mt-8 grid gap-4 lg:mt-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(420px,1.05fr)] lg:items-start">
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4" data-reveal-group-soft>
-            {heroStats.map((stat) => (
+        <div className="mt-8 grid gap-4 lg:mt-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(420px,1.05fr)] lg:items-start ">
+          <div
+            className="grid grid-cols-2 gap-3 sm:grid-cols-4"
+            data-reveal-group-soft
+          >
+            {heroStats.map(stat => (
               <div
                 key={stat.label}
                 data-reveal-soft-item
@@ -131,7 +139,9 @@ export function HeroSection() {
                 <div className="text-2xl font-semibold tracking-[-0.04em] text-zinc-950 sm:text-3xl">
                   {stat.value}
                 </div>
-                <p className="mt-2 text-sm leading-6 text-zinc-600">{stat.label}</p>
+                <p className="mt-2 text-sm leading-6 text-zinc-600">
+                  {stat.label}
+                </p>
               </div>
             ))}
           </div>
@@ -144,7 +154,7 @@ export function HeroSection() {
               Why this matters
             </p>
             <div className="mt-4 grid gap-2 sm:grid-cols-2">
-              {trustSignals.map((signal) => (
+              {trustSignals.map(signal => (
                 <div
                   key={signal}
                   className="rounded-[1.25rem] border border-zinc-200/70 bg-zinc-50/80 px-3 py-3 text-sm text-zinc-700"

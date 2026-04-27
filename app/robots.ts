@@ -6,6 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
+    host: "https://stablebuild.tech",
     sitemap: "https://stablebuild.tech/sitemap.xml",
   };
 }
