@@ -12,7 +12,7 @@ import { faqs } from "@/data/site-content";
 
 export default function HomePage() {
   const siteUrl = "https://stablebuild.tech";
-  const siteImage = `${siteUrl}/opengraph-image`;
+  const siteImage = `${siteUrl}/og/stablebuild-og.png`;
 
   const organizationSchema = {
     "@context": "https://schema.org",

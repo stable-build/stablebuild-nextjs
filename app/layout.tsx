@@ -10,7 +10,7 @@ const siteUrl = "https://stablebuild.tech";
 const siteName = "StableBuild";
 const siteDescription =
   "StableBuild is a founder-led full-stack studio shipping secure product systems, AI workflows, and protocol-grade infrastructure without handoffs.";
-const ogImage = "/opengraph-image";
+const ogImage = "/og/stablebuild-og.png";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
